@@ -8,32 +8,25 @@ import 'package:vpn_basic_project/widgets/vpn_card.dart';
 // ignore: must_be_immutable
 class LocationScreen extends StatelessWidget {
   LocationScreen({ Key? key });
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _controller.getVpnData();
-  // }
-  // @override
-// void dispose(){
-//   controller.dispose(); 
-//   super.dispose();
-// }
     TextEditingController controller = TextEditingController();
     final _controller = LocationController();
   @override
   Widget build(BuildContext context) {     
     if(_controller.vpnList.isEmpty)  _controller.getVpnData();
-    
     return Obx(() => Scaffold(
        appBar: AppBar(
+       backgroundColor: Theme.of(context).brightness == Brightness.dark
+            ? const Color.fromARGB(137, 22, 21, 21)
+            : Color.fromARGB(255, 100, 146, 148),
+        
         iconTheme: IconThemeData(
             color:  Colors.white, // Change the color here
        ),    
-          title: Text('VPN LOCATIONS',style: TextStyle(color: Color.fromARGB(255, 233, 232, 232),),),
+          title: Text(' LOCATIONS',style: TextStyle(color: Color.fromARGB(255, 233, 232, 232),),),
           actions: [
             Text("[${_controller.vpnList.length}]\t\t\t",style: TextStyle(color: Color.fromARGB(255, 233, 232, 232),),),
           ],
-        backgroundColor: Color.fromARGB(255, 67, 130, 202),
+        
         ),
         // Refresh Button
         floatingActionButton: Padding(
@@ -42,8 +35,15 @@ class LocationScreen extends StatelessWidget {
             onPressed: () {
                 _controller.getVpnData();
             },
-            child: Icon(CupertinoIcons.refresh,color: Color.fromARGB(255, 247, 236, 236),),
-            backgroundColor: Color.fromARGB(255, 67, 130, 202),
+            child: Icon(
+            CupertinoIcons.refresh,
+             color:Theme.of(context).brightness == Brightness.dark
+               ? const Color.fromARGB(137, 22, 21, 21)
+               : Colors.white,
+            ),
+            backgroundColor: Theme.of(context).brightness == Brightness.dark
+            ? const Color.fromARGB(255, 218, 205, 205)
+            : Color.fromARGB(255, 100, 146, 148),
           ),
         ),
 

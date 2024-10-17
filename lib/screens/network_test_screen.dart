@@ -18,6 +18,9 @@ class NetworkTestScreen extends StatelessWidget {
      APIs.getIPDetails(ipData: ipData);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).brightness == Brightness.dark
+            ? const Color.fromARGB(137, 22, 21, 21)
+            : Color.fromARGB(255, 100, 146, 148),
         iconTheme: IconThemeData(
             color:  Colors.white, // Change the color here
         ),
@@ -30,8 +33,15 @@ class NetworkTestScreen extends StatelessWidget {
                ipData.value=IPDetails.fromJson({});
                APIs.getIPDetails(ipData: ipData);
             },
-            child: Icon(CupertinoIcons.refresh,color: Color.fromARGB(255, 247, 236, 236),),
-            backgroundColor: Color.fromARGB(255, 67, 130, 202),
+            child: Icon(
+              CupertinoIcons.refresh,
+              color:Theme.of(context).brightness == Brightness.dark
+            ? const Color.fromARGB(137, 22, 21, 21)
+            : Colors.white,
+            ),
+           backgroundColor: Theme.of(context).brightness == Brightness.dark
+            ? const Color.fromARGB(255, 218, 205, 205)
+            : Color.fromARGB(255, 100, 146, 148),
           ),
         ),
 
