@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Column(
              children: [
               
-                Text('OpenVPN',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                Text('APNA VPN',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                 SizedBox(height: 10,),
                 Text('Developed by: Misbah Ur Rehman ',style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
                 SizedBox(height: 10,),
