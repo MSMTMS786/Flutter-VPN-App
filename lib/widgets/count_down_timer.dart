@@ -44,6 +44,6 @@ _stopTimer(){
    final seconds=twoDigits(_duration.inSeconds.remainder(60));
    final hours=twoDigits(_duration.inHours.remainder(60));
 
-    return Text("$hours: $minutes: $seconds",style: TextStyle(fontSize: 20),);
+    return Text("$hours: $minutes: $seconds",style: TextStyle(fontSize: 50),);
   }
 }

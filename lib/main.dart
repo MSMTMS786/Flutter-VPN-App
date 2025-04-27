@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'OpenVpn',
+      title: 'APNA VPN',
       home: SplashScreen(),
       themeMode: Pref.isDarkMode?ThemeMode.dark:ThemeMode.light,
       theme: ThemeData(

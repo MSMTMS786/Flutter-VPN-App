@@ -1,3 +1,4 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,7 +9,6 @@ import 'package:vpn_basic_project/models/vpn_status.dart';
 import 'package:vpn_basic_project/screens/location_screen.dart';
 import 'package:vpn_basic_project/screens/network_test_screen.dart';
 import 'package:vpn_basic_project/widgets/count_down_timer.dart';
-import 'package:vpn_basic_project/widgets/home_card.dart';
 import '../services/vpn_engine.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -27,13 +27,13 @@ class HomeScreen extends StatelessWidget {
                   _controller.connectToVpn();
                 },
                 child: Material(
-                  shape: CircleBorder(),
+                  shape: const CircleBorder(),
                   elevation: 5,
                   color: Colors.transparent,
                   child: Container(
                     height: mq.height * 0.25,
                     width: mq.height * 0.25,
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: Theme.of(context).brightness == Brightness.dark
@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             _controller.getButtonImage,
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Text(
@@ -67,12 +67,12 @@ class HomeScreen extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(
                   top: mq.height * 0.02, bottom: mq.height * 0.02),
-              padding: EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Theme.of(context).brightness == Brightness.dark
-                    ? Color.fromARGB(255, 92, 108, 110)
-                    : Color(0Xff005a7d),
+                    ? const Color.fromARGB(255, 92, 108, 110)
+                    : const Color(0Xff005a7d),
               ),
               child: Text(
                 _controller.vpnState.value == VpnEngine.vpnDisconnected
@@ -80,16 +80,16 @@ class HomeScreen extends StatelessWidget {
                     : _controller.vpnState.value
                         .replaceAll("_", " ")
                         .toUpperCase(),
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 14,
                   color: Colors.white,
                 ),
               ),
             ),
-            Obx(() => CountDownTimer(
-                  startTimer:
-                      _controller.vpnState.value == VpnEngine.vpnConnected,
-                )),
+            // Obx(() => CountDownTimer(
+            //       startTimer:
+            //           _controller.vpnState.value == VpnEngine.vpnConnected,
+            //     )),
           ],
         );
 
@@ -104,7 +104,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).brightness == Brightness.dark
             ? const Color.fromARGB(137, 22, 21, 21)
-            : Color.fromARGB(255, 100, 146, 148),
+            : const Color.fromARGB(255, 100, 146, 148),
         leading: IconButton(
   onPressed: () {
     // Toggle between dark and light mode
@@ -115,11 +115,11 @@ class HomeScreen extends StatelessWidget {
     // Toggle icon based on the current theme
     Pref.isDarkMode ? CupertinoIcons.moon_fill : CupertinoIcons.sun_max_fill,
     size: 30,
-    color: Pref.isDarkMode ? Colors.yellow : Color.fromARGB(255, 219, 210, 210),
+    color: Pref.isDarkMode ? Colors.yellow : const Color.fromARGB(255, 219, 210, 210),
   ),
 ),
 
-        title: Text(
+        title: const Text(
           'APNA VPN',
           style: TextStyle(
             color: Color.fromARGB(255, 233, 232, 232),
@@ -127,9 +127,9 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-              padding: EdgeInsets.only(right: 8),
+              padding: const EdgeInsets.only(right: 8),
               onPressed: () => Get.to(() => NetworkTestScreen()),
-              icon: Icon(
+              icon: const Icon(
                 CupertinoIcons.info, //CupertinoIcons is For IOS
                 size: 20,
                 color: Color.fromARGB(255, 219, 210, 210),
@@ -139,134 +139,234 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Center(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(20),
-          physics: BouncingScrollPhysics(),
+          padding: const EdgeInsets.all(20),
+          physics: const BouncingScrollPhysics(),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               // crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+
+                
+
                 Obx(() => _vpnButton()),
                 Obx(
-                  () => Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  () => Column(
                     children: [
-                      HomeCard(
-                        title: _controller.vpn.value.countryLong.isEmpty
-                            ? "Country"
-                            : _controller.vpn.value.countryLong,
-                        subtitle: "FREE",
-                        icon: CircleAvatar(
-                          radius: 30,
-                          child: _controller.vpn.value.countryLong.isEmpty
-                              ? Icon(
-                                  Icons.vpn_lock_rounded,
-                                  size: 30,
+                      SizedBox(height: 80),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        height: mq.height * 0.10,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 100, 146, 148),
+                          borderRadius: BorderRadius.circular(50),),
+                       
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                          
+                      
+                      
+                      
+                                      // Custom Code
+                            // 
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    CircleAvatar(
+                                    radius: 20,
+                                    child: _controller.vpn.value.countryLong.isEmpty
+                                        ? const Icon(
+                                            Icons.vpn_lock_rounded,
+                                            size: 35,
+                                          )
+                                        : null,
+                                    backgroundImage: _controller
+                                            .vpn.value.countryLong.isEmpty
+                                        ? null
+                                        : AssetImage(
+                                            "assets/flags/${_controller.vpn.value.countryShort.toLowerCase()}.png"),
+                                                              ),
+                                  ],
+                                ),
+                              SizedBox(width: 20,),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      _controller.vpn.value.countryLong.isEmpty
+                                          ? "Select Country"
+                                          : _controller.vpn.value.countryLong,
+                                      
+                                      ),
+                      
+                                    Text(
+                                      _controller.vpn.value.countryLong.isEmpty
+                                          ? "IP - 127.123.21.12"
+                                          : _controller.vpn.value.ip,
+                                    )
+                                    // Text(
+                                    //   "IP:${_controller.vpn.value.ip}"),
+                                  ],
+                                ),
+                              ],
+                            ),
+                      
+                                GestureDetector(
+                                  onTap: () {
+                                    Get.to(() => LocationScreen());
+                                  },
+                                  child: Icon(
+                                    Icons.arrow_forward_ios,
+                                    size: 30,
+                                    color: Colors.white,
+                                  ),
                                 )
-                              : null,
-                          backgroundImage: _controller
-                                  .vpn.value.countryLong.isEmpty
-                              ? null
-                              : AssetImage(
-                                  "assets/flags/${_controller.vpn.value.countryShort.toLowerCase()}.png"),
+        
+                      
+                      /////////////////////////////////////////////////////////////
+                                      // Previus Code
+                            // HomeCard(
+                            //   title: _controller.vpn.value.countryLong.isEmpty
+                            //       ? "Country"
+                            //       : _controller.vpn.value.countryLong,
+                            //   subtitle: "",
+                            //   icon: CircleAvatar(
+                            //     radius: 30,
+                            //     child: _controller.vpn.value.countryLong.isEmpty
+                            //         ? const Icon(
+                            //             Icons.vpn_lock_rounded,
+                            //             size: 30,
+                            //           )
+                            //         : null,
+                            //     backgroundImage: _controller
+                            //             .vpn.value.countryLong.isEmpty
+                            //         ? null
+                            //         : AssetImage(
+                            //             "assets/flags/${_controller.vpn.value.countryShort.toLowerCase()}.png"),
+                            //   ),
+                            //   onTap: '',
+                            // ),
+                            // const SizedBox(
+                            //   width: 30,
+                            // ),
+                            // HomeCard(
+                            //   title: _controller.vpn.value.countryLong.isEmpty
+                            //       ? "0 kb/s"
+                            //       : "${_controller.vpn.value.speed} ms",
+                            //   subtitle: "Speed",
+                              
+                              //  CircleAvatar(
+                      
+                                // backgroundColor:
+                                //     Theme.of(context).brightness == Brightness.dark
+                                //         ? Colors.white
+                                //         : const Color(0Xff005a7d),
+                                // radius: 30,
+                                // child: const Icon(
+                                //   // Icons.equalizer_rounded,
+                                //   // size: 30,
+                                //   // color:
+                                //       // Theme.of(context).brightness == Brightness.dark
+                                //           // ? Colors.black54
+                                //           // : Colors.white,
+                                  
+                                // ),
+                              // ),
+                            //   onTap: '',
+                            // ),
+                      /////////////////////////////////////////////////////////////
+                      
+                          ],
                         ),
-                        onTap: '',
                       ),
-                      SizedBox(
-                        width: 30,
-                      ),
-                      HomeCard(
-                        title: _controller.vpn.value.countryLong.isEmpty
-                            ? "100 ms"
-                            : "${_controller.vpn.value.ping} ms",
-                        subtitle: "PING",
-                        icon: CircleAvatar(
-                          backgroundColor:
-                              Theme.of(context).brightness == Brightness.dark
-                                  ? Colors.white
-                                  : Color(0Xff005a7d),
-                          radius: 30,
-                          child: Icon(
-                            Icons.equalizer_rounded,
-                            size: 30,
-                            color:
-                                Theme.of(context).brightness == Brightness.dark
-                                    ? Colors.black54
-                                    : Colors.white,
-                          ),
-                        ),
-                        onTap: '',
-                      ),
+                      SizedBox(height: 20),
+                      Obx(() => CountDownTimer(
+                  startTimer:
+                      _controller.vpnState.value == VpnEngine.vpnConnected,
+                )),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 StreamBuilder<VpnStatus?>(
                   initialData: VpnStatus(),
                   stream: VpnEngine.vpnStatusSnapshot(),
-                  builder: (context, snapshot) => Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      HomeCard(
-                        title: "${snapshot.data?.byteIn ?? "0 kbps"}",
-                        subtitle: "DOWNLOAD",
-                        icon: CircleAvatar(
-                          backgroundColor:
-                              Theme.of(context).brightness == Brightness.dark
-                                  ? Colors.white
-                                  : Color(0Xff005a7d),
-                          radius: 30,
-                          child: Icon(
-                            Icons.arrow_downward_rounded,
-                            size: 30,
-                            color:
-                                Theme.of(context).brightness == Brightness.dark
-                                    ? Colors.black54
-                                    : Colors.white,
-                          ),
-                        ),
-                        onTap: '',
-                      ),
-                      SizedBox(
-                        width: 30,
-                      ),
-                      HomeCard(
-                        title: "${snapshot.data?.byteOut ?? "0 kbps"}",
-                        subtitle: "ULPOAD",
-                        icon: CircleAvatar(
-                          backgroundColor:
-                              Theme.of(context).brightness == Brightness.dark
-                                  ? Colors.white
-                                  : Color(0Xff005a7d),
-                          radius: 30,
-                          child: Icon(
-                            Icons.arrow_upward_rounded,
-                            size: 30,
-                            color:
-                                Theme.of(context).brightness == Brightness.dark
-                                    ? Colors.black54
-                                    : Colors.white,
-                          ),
-                        ),
-                        onTap: '',
-                      ),
-                    ],
+                  builder: (context, snapshot) => const Row(
+                  
+       ///////////////////////////////////////////////////////////
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     HomeCard(
+                  //       title: "${snapshot.data?.byteIn ?? "0 kbps"}",
+                  //       subtitle: "DOWNLOAD",
+                  //       icon: CircleAvatar(
+                  //         backgroundColor:
+                  //             Theme.of(context).brightness == Brightness.dark
+                  //                 ? Colors.white
+                  //                 : Color(0Xff005a7d),
+                  //         radius: 30,
+                  //         child: Icon(
+                  //           Icons.arrow_downward_rounded,
+                  //           size: 30,
+                  //           color:
+                  //               Theme.of(context).brightness == Brightness.dark
+                  //                   ? Colors.black54
+                  //                   : Colors.white,
+                  //         ),
+                  //       ),
+                  //       onTap: '',
+                  //     ),
+                  //     SizedBox(
+                  //       width: 30,
+                  //     ),
+                  //     HomeCard(
+                  //       title: "${snapshot.data?.byteOut ?? "0 kbps"}",
+                  //       subtitle: "ULPOAD",
+                  //       icon: CircleAvatar(
+                  //         backgroundColor:
+                  //             Theme.of(context).brightness == Brightness.dark
+                  //                 ? Colors.white
+                  //                 : Color(0Xff005a7d),
+                  //         radius: 30,
+                  //         child: Icon(
+                  //           Icons.arrow_upward_rounded,
+                  //           size: 30,
+                  //           color:
+                  //               Theme.of(context).brightness == Brightness.dark
+                  //                   ? Colors.black54
+                  //                   : Colors.white,
+                  //         ),
+                  //       ),
+                  //       onTap: '',
+                  //     ),
+                  //   ],
+         
+      /////////////////////////////////////////////////////////////         
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                
               ]),
         ),
       ),
-
-      bottomNavigationBar: _changeLocation(context),
+     /////////////////////////////////////////////////////////////
+              // bottomNavigationBar: _changeLocation(context),
+    
+    /////////////////////////////////////////////////////////////
     );
 
     // ignore: dead_code
   }
 
+  // ignore: unused_element
   Widget _changeLocation(BuildContext context) => SafeArea(
         child: Semantics(
           child: InkWell(
@@ -276,7 +376,7 @@ class HomeScreen extends StatelessWidget {
               color: Theme.of(context).bottomNav,
               height: mq.height * 0.1,
               padding: EdgeInsets.symmetric(horizontal: mq.width * 0.04),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
@@ -309,6 +409,11 @@ class HomeScreen extends StatelessWidget {
         ),
       );
 }
+
+
+
+
+
 
 // Center(
 //                   child: TextButton(
