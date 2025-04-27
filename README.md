@@ -1,16 +1,68 @@
-# vpn
-FLutter VPN APP
-A new Flutter project.
+# APNA VPN Mobile Application Report
 
-## Getting Started
+## Overview
+APNA VPN is a mobile application developed using Flutter and the OpenVPN API to provide secure virtual private network services. The application allows users to connect to various server locations worldwide with different connection speeds and security capabilities.
 
-This project is a starting point for a Flutter application.
+## Interface Design
+The application features a clean, modern interface with two color themes:
+- Dark mode: Black background with accent colors
+- Light mode: Teal/blue-green header with white background
 
-A few resources to get you started if this is your first Flutter project:
+The main screen displays:
+- A large circular connection button at the center
+- Current connection status ("Connected" or "Not Connected")
+- Currently selected server location with IP address
+- Connection timer that tracks session duration
+- Regional flag icon for the selected server
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Key Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 1. Server Selection
+The application provides multiple server options from different countries including:
+- Russian Federation (58.15 Mbps)
+- Japan (multiple servers, including high-speed 2.61 Gbps connections)
+- Republic of Korea (multiple servers ranging from 83.61 Mbps to 254.10 Mbps)
+- United States (76.140.21.95)
+
+
+
+### 2. Network Information
+When connected, the app displays comprehensive network information:
+- IP Address (e.g., 79.105.148.29)
+- Internet Service Provider (e.g., Rostelecom networks)
+- Geographic Location (e.g., Blagoveshchensk, Amur Oblast, Russia)
+- Pin-code information
+- Time Zone (e.g., Asia/Yakutsk)
+
+### 3. User Experience
+The application provides:
+- One-tap connection/disconnection
+- Visual indicators of connection status
+- Dark/light theme options (indicated by sun/moon icons)
+- Connection timer to track usage duration
+- Informational button for additional details
+
+### 4. Visual Branding
+The application's branding includes:
+- Shield icon representing security and protection
+- Consistent color scheme across screens
+- Professional app icon displaying a blue shield against a dark background
+
+## Technical Implementation
+The application has been developed using:
+- Flutter framework for cross-platform compatibility
+- OpenVPN API for VPN connectivity
+- Real-time network statistics tracking
+- Location-based server selection
+
+## Recommendations for Future Development
+Based on the screenshots, potential enhancements could include:
+- Server sorting/filtering options
+- Favorites or recently used connections
+- Bandwidth usage statistics
+- Auto-connect features
+- Split tunneling capabilities
+- Additional security features such as kill switch
+
+## Conclusion
+APNA VPN demonstrates a well-designed mobile application that provides VPN services with a focus on user experience and simplicity. The clean interface makes it easy for users to connect to various global servers while providing relevant connection information.
